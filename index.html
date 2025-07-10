@@ -227,6 +227,27 @@
             }
         });
     </script>
+<script>
+    const toggle = document.getElementById('toggleDark');
+    const html = document.documentElement;
 
+    // Se tiver preferência salva no navegador
+    if (localStorage.getItem('theme') === 'dark') {
+        html.classList.add('dark');
+    } else {
+        html.classList.remove('dark');
+    }
+
+    toggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        
+        // Salvar escolha do usuário
+        if (html.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
 </body>
 </html>
